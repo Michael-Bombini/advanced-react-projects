@@ -7,13 +7,6 @@ interface Props {
 }
 
 export default function Modal({ show, closeModal }: Props) {
-  if (!show) {
-    return null;
-  }
-  const portalNode = document.getElementById("portal");
-  if (!portalNode) {
-    return null;
-  }
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
@@ -28,9 +21,17 @@ export default function Modal({ show, closeModal }: Props) {
     };
   }, []);
 
+  if (!show) {
+    return null;
+  }
+  const portalNode = document.getElementById("portal");
+  if (!portalNode) {
+    return null;
+  }
+
   return ReactDOM.createPortal(
     <div className="modal">
-      <div className="overlay"></div>
+      <div className="overlay" onClick={closeModal}></div>
       <div className="content">
         <h2>Simple Modal</h2>
         <button onClick={closeModal}>Close Modal</button>
