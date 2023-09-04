@@ -1,0 +1,11 @@
+.date-container {
+  width: calc(50px * 7);
+}
+
+.day{
+  width: 50px;
+}
+
+.active{
+  background: lightskyblue;
+}
